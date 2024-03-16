@@ -1,0 +1,15 @@
+name: Block users
+
+on: [push]
+
+
+
+jobs:
+  block:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check user permission
+        uses: 74th/workflow-permission-action@1.0.0
+        with:
+          users: wrfhowell
+            
