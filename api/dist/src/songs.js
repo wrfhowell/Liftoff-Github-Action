@@ -15,7 +15,6 @@ router.get('/', (req, res) => {
 });
 // Get a song by ID
 router.get('/:id', (req, res) => {
-    console.log(seed_1.data.songs);
     const song = seed_1.data.songs.find(s => s.id === parseInt(req.params.id));
     console.log(song);
     if (song) {
@@ -25,7 +24,6 @@ router.get('/:id', (req, res) => {
         res.status(404).send('Song not found');
     }
 });
-// Create a new song
 router.post('/', (req, res) => {
     const newSong = Object.assign({ id: seed_1.data.songs.length + 1 }, req.body);
     seed_1.data.songs.push(newSong);

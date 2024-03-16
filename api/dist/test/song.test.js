@@ -27,7 +27,6 @@ const app = (0, express_1.default)();
 app.use('/songs', songs_1.router);
 describe('Song Routes', () => {
     it('GET /songs - should return all songs', () => __awaiter(void 0, void 0, void 0, function* () {
-        console.log(seed_1.data);
         const response = yield (0, supertest_1.default)(app).get('/songs');
         expect(response.status).toBe(200);
         expect(response.body).toEqual(seed_1.data.songs);
