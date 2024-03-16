@@ -13,7 +13,7 @@ jobs:
       uses: peter-evans/block-users@v1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        users: ${{ github.event.pull_request.user.login }}
+        users: wrfhowell
         blocked-comment: >
           :no_entry: Sorry @${{ github.event.pull_request.user.login }},
           we do not accept contributions from your account.
