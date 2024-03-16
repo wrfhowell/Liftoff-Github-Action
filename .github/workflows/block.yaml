@@ -1,15 +1,16 @@
-name: Block users
-
-on: [push]
-
-
+# .github/workflows/deploy.yml
+name: deploy
+on:
+  workflow_dispatch: {}
 
 jobs:
-  block:
+  deploy:
     runs-on: ubuntu-latest
+    name: deploy test
     steps:
       - name: check user permission
         uses: 74th/workflow-permission-action@1.0.0
         with:
           users: wrfhowell
-            
+      - name: deploy
+        run: echo "deployed"
