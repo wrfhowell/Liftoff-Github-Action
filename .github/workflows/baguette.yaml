@@ -1,5 +1,4 @@
-name: Hello world workflow
-
+name: Baguette CI
 
 on:
     push:
@@ -10,7 +9,6 @@ on:
             - main
     workflow_dispatch:
     
-
 jobs:
     hello_world_job:
         runs-on: ubuntu-latest
@@ -18,4 +16,4 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v2
             - name: Hello world
-              run: echo "Hello world"
+              run: echo "Oui Oui Baguette"
