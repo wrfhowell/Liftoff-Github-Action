@@ -1,16 +1,20 @@
-# .github/workflows/deploy.yml
-name: deploy
+name: Block Users on Pull Request
+
 on:
-  workflow_dispatch: {}
+  pull_request:
+    types: [opened, reopened]
 
 jobs:
-  deploy:
-    runs-on: ubuntu-20.04
-    name: deploy test
+
+  block-users:
+    runs-on: ubuntu-latest
     steps:
-      - name: check user permission
-        uses: 74th/workflow-permission-action@1.0.0
-        with:
-          users: wrfhowell
-      - name: deploy
-        run: echo "deployed"
+    - name: Block Users
+      uses: peter-evans/block-users@v1
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        users: ${{ github.event.pull_request.user.login }}
+        blocked-comment: >
+          :no_entry: Sorry @${{ github.event.pull_request.user.login }},
+          we do not accept contributions from your account.
+          Please open an issue if you have any questions or concerns.
